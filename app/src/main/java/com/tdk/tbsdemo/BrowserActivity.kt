@@ -95,19 +95,14 @@ class BrowserActivity : Activity() {
         }
         //
         try {
-            if (Integer.parseInt(android.os.Build.VERSION.SDK) >= 11) {
-                window
-                        .setFlags(
+            if (android.os.Build.VERSION.SDK_INT >= 11) {
+                window.setFlags(
                                 android.view.WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
                                 android.view.WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED)
             }
         } catch (e: Exception) {
         }
 
-        /*
-		 * getWindow().addFlags(
-		 * android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		 */
         setContentView(R.layout.activity_main)
         mViewParent = findViewById<View>(R.id.webView1) as ViewGroup
 
@@ -119,18 +114,18 @@ class BrowserActivity : Activity() {
 
     private fun changGoForwardButton(view: WebView) {
         if (view.canGoBack())
-            mBack!!.setAlpha(enable)
+            mBack!!.imageAlpha=enable
         else
-            mBack!!.setAlpha(disable)
+         mBack!!.imageAlpha=enable
         if (view.canGoForward())
-            mForward!!.setAlpha(enable)
+            mForward!!.imageAlpha=enable
         else
-            mForward!!.setAlpha(disable)
+            mForward!!.imageAlpha=enable
         if (view.url != null && view.url.equals(mHomeUrl, ignoreCase = true)) {
-            mHome!!.setAlpha(disable)
+            mHome!!.imageAlpha=enable
             mHome!!.isEnabled = false
         } else {
-            mHome!!.setAlpha(enable)
+            mHome!!.imageAlpha=enable
             mHome!!.isEnabled = true
         }
     }
@@ -289,9 +284,9 @@ class BrowserActivity : Activity() {
         mUrl = findViewById<View>(R.id.editUrl1) as EditText
         mMore = findViewById<View>(R.id.btnMore) as ImageButton
         if (Integer.parseInt(android.os.Build.VERSION.SDK) >= 16) {
-            mBack!!.setAlpha(disable)
-            mForward!!.setAlpha(disable)
-            mHome!!.setAlpha(disable)
+         mBack!!.imageAlpha=enable
+            mForward!!.imageAlpha=enable
+            mHome!!.imageAlpha=enable
         }
         mHome!!.isEnabled = false
 

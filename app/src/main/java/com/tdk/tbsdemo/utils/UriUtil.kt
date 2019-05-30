@@ -4,13 +4,13 @@ import android.annotation.SuppressLint
 import android.content.ContentUris
 import android.content.Context
 import android.database.Cursor
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 import java.io.IOException
@@ -27,7 +27,8 @@ object UriUtil {
     fun getPath(context: Context, uri: Uri): String? {
 
         val isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
-        val pathHead = "file:///"
+//        val pathHead = "file:///"
+        val pathHead = ""
         // 1. DocumentProvider
         if (isKitKat && DocumentsContract.isDocumentUri(context, uri)) {
             // 1.1 ExternalStorageProvider
@@ -108,6 +109,7 @@ object UriUtil {
         }
         return null
     }
+
     /**
      * @param uri
      * The Uri to check.
