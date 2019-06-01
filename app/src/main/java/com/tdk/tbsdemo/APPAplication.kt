@@ -1,6 +1,7 @@
 package com.tdk.tbsdemo
 
 import android.app.Application
+import android.content.Context
 import android.util.Log
 
 import com.tencent.smtt.sdk.QbSdk
@@ -10,6 +11,7 @@ class APPAplication : Application() {
     override fun onCreate() {
         // TODO Auto-generated method stub
         super.onCreate()
+        mContext = this
         //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
 
         val cb = object : QbSdk.PreInitCallback {
@@ -26,6 +28,11 @@ class APPAplication : Application() {
         }
         //x5内核初始化接口
         QbSdk.initX5Environment(applicationContext, cb)
+    }
+
+    companion object {
+        @JvmStatic
+        lateinit var mContext: Context
     }
 
 }
