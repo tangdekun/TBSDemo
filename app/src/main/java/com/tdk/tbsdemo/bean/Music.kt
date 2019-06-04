@@ -1,5 +1,9 @@
+package com.tdk.tbsdemo.bean
+
 import android.os.Parcel
 import android.os.Parcelable
+import com.tdk.tbsdemo.PinyinUtils
+
 
 /**
  * @Author tangdekun
@@ -17,19 +21,23 @@ data class Music(var name: String?,
                  /**艺术家(作者)*/
                  var size: Long,
                  /**文件大小*/
-                 var duration: Int,
-                 /**时长*/
-                 var pinyin: String
-        /**歌曲名的拼音，用于字母排序*/
+                 var duration: Int
+        /**时长*/
+
 ) : Parcelable {
+
+    private var pinyin: String? = null
+        get() {
+            return PinyinUtils.getPinyin(name)
+        }
+
     constructor(source: Parcel) : this(
             source.readString(),
             source.readString(),
             source.readString(),
             source.readString(),
             source.readLong(),
-            source.readInt(),
-            source.readString()
+            source.readInt()
     )
 
     override fun describeContents() = 0
