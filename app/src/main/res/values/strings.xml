@@ -11,5 +11,9 @@
         <item>全屏播放</item>
         <item>文件选择器</item>
     </string-array>
+    <string name="title_activity_file_list">FileListActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 </resources>

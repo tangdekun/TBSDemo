@@ -29,6 +29,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name="com.tdk.FileListActivity"
+            android:label="@string/title_activity_file_list"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,15 +54,15 @@
         <activity
             android:name=".FullScreenActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".FilechooserActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".BrowserActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name="com.tencent.smtt.sdk.VideoActivity"
             android:alwaysRetainTaskState="true"
@@ -72,7 +75,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".WebViewActivity"></activity>
+        <activity android:name=".WebViewActivity" />
     </application>
 
 </manifest>
